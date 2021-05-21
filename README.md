@@ -1,7 +1,7 @@
 
 # Fork of Trammell Hudson's laser scripts
 
-It would appear that at the time of this writing 2021.05.21 that the bitbucket no longer exists for the `boxer.pl`, `lace-maker.pl`, and `circle-maker.pl` scripts refrered by Trammel Hudson's laser cut projects pages:
+It would appear that at the time of this writing 2021.05.21 that the bitbucket no longer exists for the `boxer.pl`, `lace-maker.pl`, and `circle-maker.pl` scripts referred by Trammel Hudson's laser cut projects pages:
 
 - https://trmm.net/Boxer/
 - https://trmm.net/Voronoi_boxes/
