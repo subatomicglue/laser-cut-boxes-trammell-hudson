@@ -1,0 +1,36 @@
+a > code {
+	text-decoration: underline !important;
+	background-color: #f4f4f4 !important;
+	color: var(--md-typeset-a-color) !important;
+}
+p > code {
+	background-color: #f4f4f4 !important;
+	color: #000000 !important;
+}
+pre > code {
+	background: #f4f4f4 !important;
+}
+
+strong { color: #FF0040; }
+h2 { color: #888888; }
+h1, h2, h3, h4, h5, h6 {
+	color: #CF0000 !important;
+}
+
+.md-footer-copyright {
+	display: none;
+}
+
+.gallery-image {
+	padding-top: 15px;
+	padding-bottom: 0px;
+	vertical-align: bottom;
+}
+
+.gallery-caption {
+	color: #606060;
+	padding-top: 0px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
