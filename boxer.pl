@@ -102,7 +102,7 @@ print <<"";
 #print <<"";
 #<!-- Created with boxer (http://trmm.net/) -->
 #<svg xmlns="http://www.w3.org/2000/svg">
-#<g transform="scale($dpi_scale)"><!-- scale mm to pixels @ 90dpi -->
+#<g transform="scale($dpi_scale)"><!-- scale mm to pixels @ ${$dpi_scal} dpi -->
 
 
 sub make_translate
