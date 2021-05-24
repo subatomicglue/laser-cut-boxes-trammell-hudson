@@ -21,6 +21,7 @@ source_path=$(dirname $BASH_SOURCE)
 [ -z ${LACE_LINE_WIDTH+x} ] && LACE_LINE_WIDTH=1 || LACE_LINE_WIDTH="$LACE_LINE_WIDTH"
 [ -z ${LACE_NUM_POINTS+x} ] && LACE_NUM_POINTS=40 || LACE_NUM_POINTS="$LACE_NUM_POINTS"
 [ -z ${LACE_DIST_FROM_EDGE+x} ] && LACE_DIST_FROM_EDGE=2.2 || LACE_DIST_FROM_EDGE="$LACE_DIST_FROM_EDGE"
+[ -z ${MAKE_LACE+x} ] && MAKE_LACE=false || MAKE_LACE="$MAKE_LACE"
 
 echo "Creating ${WIDTH}x${HEIGHT}x${DEPTH}mm box, named like $PREFIX*.svg..."
 
@@ -80,14 +81,16 @@ function make_lace_sides
   do_until_success "$source_path/lace-maker.pl -x $X -y $Y -n $N -w $W > \"./$NAME-lace6.svg\" 2> /dev/null"
 }
 
-# do some arithmetic to figure out final lace params
-LACE_WIDTH=`echo "$WIDTH - ($MATERIAL_THICKNESS*2 + $LACE_DIST_FROM_EDGE*2)" | bc`
-LACE_HEIGHT=`echo "$HEIGHT - ($MATERIAL_THICKNESS*2 + $LACE_DIST_FROM_EDGE*2)" | bc`
-LACE_LINE_WIDTH=`echo "$LACE_LINE_WIDTH * 0.5" | bc`
+if [ $MAKE_LACE == true ]; then
+  # do some arithmetic to figure out final lace params
+  LACE_WIDTH=`echo "$WIDTH - ($MATERIAL_THICKNESS*2 + $LACE_DIST_FROM_EDGE*2)" | bc`
+  LACE_HEIGHT=`echo "$HEIGHT - ($MATERIAL_THICKNESS*2 + $LACE_DIST_FROM_EDGE*2)" | bc`
+  LACE_LINE_WIDTH=`echo "$LACE_LINE_WIDTH * 0.5" | bc`
 
-echo "Creating Lace sides:"
-make_lace_sides $LACE_WIDTH $LACE_HEIGHT $LACE_NUM_POINTS $LACE_LINE_WIDTH "$PREFIX"
-echo ""
+  echo "Creating Lace sides:"
+  make_lace_sides $LACE_WIDTH $LACE_HEIGHT $LACE_NUM_POINTS $LACE_LINE_WIDTH "$PREFIX"
+  echo ""
+fi
 
 # Usage: boxer [options] > box.svg
 # Options:
